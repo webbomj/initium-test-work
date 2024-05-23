@@ -1,0 +1,44 @@
+@use'../../../../styles/variables';
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+
+    &:hover {
+        background-color: variables.$icon-background-hover;
+    }
+
+    &:active {
+        background-color: variables.$icon-background-click;
+        opacity: 1 ; 
+    }
+}
+
+[svgicon] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+::ng-deep .mat-mdc-icon-button svg  {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 36px !important;
+    height: 36px !important;
+}
+
+::ng-deep .mat-icon {
+    height: 100% !important;
+    width: 100% !important;
+}
+
+::ng-deep button:disabled svg path {
+    fill: variables.$icon-color-disable !important;
+}

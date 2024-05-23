@@ -3,3 +3,5 @@
 <form [formGroup]="myForm" (ngSubmit)="submit()">
     <app-input [control]="userName" [label]="'Email'" [error]="'Некорректный адрес'"></app-input>
 </form>
+<app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="true"> </app-icon-button>
+<app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false"> </app-icon-button>
