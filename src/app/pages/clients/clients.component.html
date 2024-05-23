@@ -1,2 +1,5 @@
 <p>clients works!</p>
 <app-button [color]="'primary'" [disable]="true">Удалить</app-button>
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+    <app-input [control]="userName" [label]="'Email'" [error]="'Некорректный адрес'"></app-input>
+</form>
