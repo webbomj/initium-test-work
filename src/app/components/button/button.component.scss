@@ -1,0 +1,42 @@
+@use '../../../styles/variables';
+
+button {
+    height: 53px !important;
+    width: 115px !important;
+    border-radius: 37px;
+    font-size: variables.$font-button-size;
+    font-weight: 400;
+}
+
+.primary {
+    background-color: variables.$button-primary-background-default !important; 
+    color: variables.$button-primary-text !important;
+
+    &:hover {
+        background-color: variables.$button-primary-background-hover !important; 
+    }
+
+    &:active {
+        background-color: variables.$button-primary-background-pressed !important; 
+    }
+
+    &:disabled {
+        background-color: variables.$button-primary-background-disabled !important;
+    }
+}
+
+.secondary {
+    background-color: variables.$button-secondary-background-default !important; 
+    color: variables.$button-secondary-text !important;
+    box-shadow: none !important;
+
+    &:hover {
+        background-color: variables.$button-secondary-background-hover !important; 
+    }
+
+    &:active {
+        background-color: variables.$button-secondary-background-pressed !important; 
+    }
+} 
+
+
