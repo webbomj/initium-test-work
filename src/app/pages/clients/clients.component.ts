@@ -6,13 +6,17 @@ import { ButtonComponent } from 'src/app/components/buttons/primary-button/butto
 import { PlusComponent } from 'src/app/components/buttons/icon-button/icon-button.component';
 import { InputComponent } from 'src/app/components/input/input.component';
 import { ClientsService } from 'src/app/api/clients.service';
+import { ClientsStoreService } from 'src/app/store/clients-store.service';
+import { BehaviorSubject } from 'rxjs';
+import { Client } from 'src/app/api/types/clients.types';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'],
   standalone: true,
-  imports: [ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent],
+  imports: [CommonModule, ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent],
   providers: [ClientsService]
 })
 export class ClientsComponent implements OnInit {
@@ -21,14 +25,18 @@ export class ClientsComponent implements OnInit {
 
   userName: FormControl = new FormControl('', [ Validators.email, Validators.required])
 
-  constructor(private clientService: ClientsService){}
+  clients$!: BehaviorSubject<Client[]>
+
+  constructor(private clientStore: ClientsStoreService){}
 
     ngOnInit() {
       this.myForm = new FormGroup({
         "userName": this.userName
       })
 
-      this.clientService.getClients()
+      this.clientStore.initClients()
+
+      this.clients$ = this.clientStore.getClients()
      }
 
 

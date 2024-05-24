@@ -25,9 +25,8 @@ export class ClientsStoreService implements OnDestroy {
     
     this.clientSub =  this.clientsService.getClients()
       .subscribe((data) =>  {
-        this.clients$.next(data)
-      }
-    )
+        this.setClients(data)
+      })
   }
 
   getClients() {
@@ -36,6 +35,7 @@ export class ClientsStoreService implements OnDestroy {
 
   private setClients(clients: Client[]) {
     this.clients$.next(clients)
+    this.localStorageService.setData(CLIENTS_KEY, clients)
   }
 
   ngOnDestroy(): void {

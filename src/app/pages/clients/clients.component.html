@@ -5,3 +5,7 @@
 </form>
 <app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="true"> </app-icon-button>
 <app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false"> </app-icon-button>
+
+<div *ngFor="let client of clients$ | async">
+    {{ client.name}}
+</div>
