@@ -5,13 +5,15 @@ import { MatInputModule } from '@angular/material/input';
 import { ButtonComponent } from 'src/app/components/buttons/primary-button/button.component';
 import { PlusComponent } from 'src/app/components/buttons/icon-button/icon-button.component';
 import { InputComponent } from 'src/app/components/input/input.component';
+import { ClientsService } from 'src/app/api/clients.service';
 
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'],
   standalone: true,
-  imports: [ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent]
+  imports: [ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent],
+  providers: [ClientsService]
 })
 export class ClientsComponent implements OnInit {
 
@@ -19,10 +21,14 @@ export class ClientsComponent implements OnInit {
 
   userName: FormControl = new FormControl('', [ Validators.email, Validators.required])
 
+  constructor(private clientService: ClientsService){}
+
     ngOnInit() {
       this.myForm = new FormGroup({
         "userName": this.userName
       })
+
+      this.clientService.getClients()
      }
 
 
