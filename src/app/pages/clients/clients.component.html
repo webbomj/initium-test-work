@@ -1,11 +1,13 @@
-<p>clients works!</p>
-<app-button [color]="'primary'" [disable]="true">Удалить</app-button>
+<h1 class="header">Клиенты</h1>
+<!-- <app-button [color]="'primary'" [disable]="true">Удалить</app-button>
 <form [formGroup]="myForm" (ngSubmit)="submit()">
     <app-input [control]="userName" [label]="'Email'" [error]="'Некорректный адрес'"></app-input>
 </form>
 <app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="true"> </app-icon-button>
-<app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false"> </app-icon-button>
+<app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false"> </app-icon-button> -->
 
-<div *ngFor="let client of clients$ | async">
+<!-- <div *ngFor="let client of clients$ | async">
     {{ client.name}}
-</div>
+</div> -->
+
+<app-table></app-table>

@@ -10,13 +10,14 @@ import { ClientsStoreService } from 'src/app/store/clients-store.service';
 import { BehaviorSubject } from 'rxjs';
 import { Client } from 'src/app/api/types/clients.types';
 import { CommonModule } from '@angular/common';
+import { TableComponent } from 'src/app/components/table/table.component';
 
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.scss'],
   standalone: true,
-  imports: [CommonModule, ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent],
+  imports: [CommonModule, ButtonComponent, InputComponent, ReactiveFormsModule, MatFormFieldModule, MatInputModule, PlusComponent, TableComponent],
   providers: [ClientsService]
 })
 export class ClientsComponent implements OnInit {

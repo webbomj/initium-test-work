@@ -1,0 +1,53 @@
+<section class="mat-elevation" tabindex="0">
+    <div class="buttons-top">
+        <app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="false" class="button-plus" (click)="addClient()"> </app-icon-button>
+        <app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false" (click)="deleteClients()"> </app-icon-button>
+    </div>
+
+  <mat-table [dataSource]="dataSource" class="table">
+
+    <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? toggleAllRows() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()"
+                        [color]="'primary'"
+                        >
+          </mat-checkbox>
+        </th>
+        <td mat-cell *matCellDef="let row" >
+          <mat-checkbox (click)="$event.stopPropagation()"
+                        (change)="$event ? selection.toggle(row) : null"
+                        [checked]="selection.isSelected(row)"
+                        [aria-label]="checkboxLabel(row)"
+                        [color]="'primary'">
+          </mat-checkbox>
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef class="column-header column-header-name">Имя</th>
+      <td mat-cell *matCellDef="let element" class="column column-body-name" (click)="editClient(element)"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="surname" >
+      <th mat-header-cell *matHeaderCellDef class="column-header column-header-surname">Фамилия</th>
+      <td mat-cell *matCellDef="let element" class="column column-body-surname" (click)="editClient(element)"> {{element.surname}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef class="column-header column-header-mail">E-mail</th>
+      <td mat-cell *matCellDef="let element" class="column column-body-mail" (click)="editClient(element)"> {{element.email}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef class="column-header column-header-phone">Телефон</th>
+      <td mat-cell *matCellDef="let element" colspan="6" class="column column-body-phone" (click)="editClient(element)"> {{element.phone}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </mat-table>
+</section>
