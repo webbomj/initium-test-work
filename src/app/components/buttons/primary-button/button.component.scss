@@ -1,11 +1,11 @@
-@use '../../../styles/variables';
+@use '../../../../styles/variables';
 
 button {
     height: 53px !important;
-    width: 115px !important;
     border-radius: 37px;
     font-size: variables.$font-button-size;
     font-weight: 400;
+    padding: 0px 20px;
 }
 
 .primary {
@@ -40,3 +40,6 @@ button {
 } 
 
 
+.mat-mdc-form-field {
+    width: 100% !important;
+}
