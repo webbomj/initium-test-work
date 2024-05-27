@@ -1,13 +1,7 @@
-<h1 class="header">Клиенты</h1>
-<!-- <app-button [color]="'primary'" [disable]="true">Удалить</app-button>
-<form [formGroup]="myForm" (ngSubmit)="submit()">
-    <app-input [control]="userName" [label]="'Email'" [error]="'Некорректный адрес'"></app-input>
-</form>
-<app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="true"> </app-icon-button>
-<app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false"> </app-icon-button> -->
-
-<!-- <div *ngFor="let client of clients$ | async">
-    {{ client.name}}
-</div> -->
-
-<app-table></app-table>
+<div class="wrapper">
+    <h1 class="header">Клиенты</h1>
+    <app-table #table (onEditClient)="openModalEditClient($event, '0ms', 'oms')" [clients]="clients$" class="table">
+        <app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="false" class="button-plus" (click)="openModalAddClient('0ms', '0ms')"> </app-icon-button>
+        <app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false" (click)="openModalDeleteClients('0ms', '0ms')"> </app-icon-button>
+    </app-table>
+</div>

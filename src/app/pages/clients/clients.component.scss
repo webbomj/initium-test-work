@@ -1,0 +1,23 @@
+@use'../../../styles/variables';
+.wrapper {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
+
+.header {
+    margin: 31px 0 0 27px;
+    font-size: variables.$font-header-primary-size;
+    font-weight: variables.$font-weight-medium;
+    color: variables.$text-header-primary;
+}
+
+.table {
+    margin-top: 25px;
+}
+
+.button-plus {
+    margin-right: 7px;
+}
