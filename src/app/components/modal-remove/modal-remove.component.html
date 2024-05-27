@@ -1,0 +1,10 @@
+<app-modal>
+    <div class="modal-remove">
+        <h1 mat-dialog-title class="header">Удаление строк</h1>
+        <mat-dialog-content class="text">Удалить выбранные строки ({{data.count}})?</mat-dialog-content>
+        <mat-dialog-actions>
+            <app-button mat-dialog-close [color]="'secondary'">Отмена</app-button>
+            <app-button (click)="removeClients()">Удалить</app-button>
+        </mat-dialog-actions>
+    </div>
+</app-modal>
