@@ -1,7 +1,6 @@
 <section class="mat-elevation" tabindex="0">
     <div class="buttons-top">
-        <app-icon-button iconName="plus-icon" [svgString]="getPlusSVG()" [disabled]="false" class="button-plus" (click)="addClient()"> </app-icon-button>
-        <app-icon-button iconName="trash-icon" [svgString]="getTrashSVG()" [disabled]="false" (click)="deleteClients()"> </app-icon-button>
+        <ng-content></ng-content>
     </div>
 
   <mat-table [dataSource]="dataSource" class="table">

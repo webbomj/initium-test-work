@@ -14,14 +14,11 @@
     padding: 12px 16px 0  16px;
 }
 
-.button-plus {
-    margin-right: 7px;
-}
-
 .table {
     overflow-y: scroll;
     overflow-x: hidden;
-    height: 500px;
+    //100vh - 91px header - 16px padding bottom - 47px bottoms
+    max-height: calc(100vh - 91px - 16px - 47px);
 
     &::-webkit-scrollbar {
         width: 7px;
@@ -59,7 +56,6 @@
   
 .mat-mdc-header-row {
     display: flex;
-    // align-items: center;
     height: 46px;
     border: none;
     color: variables.$text-table-column-header;
@@ -139,22 +135,29 @@
 }
 
 .column-body-mail {
-    width: 325px;
-    padding: 0px 5px 0 217px;
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    width: 500px;
+    padding: 0px 188px 0 0;
 }
 
 .column-body-phone {
     text-align: right;
     width: auto;
-    padding: 0px 54px 0 186px;
+    padding: 0px 0px 0 12px;
     flex-grow: 1;
 }
 
 @media (max-width: 1600px) {
     
+    .column-header-mail {
+
+        padding-right: 0;
+        padding-left: 180px;
+    }
+
     .column-header-phone {
-        padding-right: 349px;
+        padding-left: 5px;
     }
 
     .column-body-phone {
@@ -162,11 +165,13 @@
     }
 
     .column-body-mail {
-        width: 225px;
+        display: flex;
+        justify-content: right;
+        width: 500px;
+        padding: 0px 181px 0 0;
     }
 
     .column-body-surname {
         width: 220px;
     }
-    
 }
