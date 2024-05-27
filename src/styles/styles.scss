@@ -3,3 +3,6 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: variables.$font-family; background-color: lightblue;}
+.mdc-dialog__surface {
+    border-radius: 20px !important;
+  }
