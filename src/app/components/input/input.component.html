@@ -1,5 +1,5 @@
 <mat-form-field appearance="outline">
     <mat-label>{{label}}</mat-label>
-    <input matInput placeholder="Placeholder" [formControl]="control">
-    <mat-hint *ngIf="error" class="error">{{error}}</mat-hint>
+    <input matInput [placeholder]="label" [formControl]="control">
+    <mat-hint *ngIf="error && control.invalid && control.touched" class="error">{{error}}</mat-hint>
 </mat-form-field>
