@@ -11,3 +11,8 @@
     font-weight: variables.$font-weight-regular;
     color: variables.$input-outfit-error;
 }
+
+.mat-mdc-form-field {
+    width: 100%;
+    margin-bottom: 18px;
+}
