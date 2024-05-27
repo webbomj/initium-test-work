@@ -36,7 +36,6 @@ export class ClientsStoreService implements OnDestroy {
   }
 
   private setClients(clients: Client[]) {
-    console.log('setClients', clients)
     this._clients = clients
     this.clients$.next(clients)
     this.localStorageService.setData(CLIENTS_KEY, clients)
