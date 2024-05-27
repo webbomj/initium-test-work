@@ -48,7 +48,7 @@ export class ClientsStoreService implements OnDestroy {
 
   editClient(email:string, newClient: Client) {
     const editableClientId = this._clients.findIndex((client) => client.email === email) 
-    if (editableClientId > 0) {
+    if (editableClientId >= 0) {
         const newClientsArr = [...this._clients.slice(0, editableClientId), newClient, ...this._clients.slice(editableClientId + 1)]
         this.setClients(newClientsArr)
     }
