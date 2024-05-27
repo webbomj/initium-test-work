@@ -1,0 +1,17 @@
+<app-modal>
+    <div class="modal-add">
+        <h1 mat-dialog-title class="header">{{data.title}}</h1>
+        <mat-dialog-content>
+            <form class="form" [formGroup]="data.form" >
+                <app-input label="Имя" [control]="getControl('name')" error="Минимальное количество символов: 2" class="input"></app-input>
+                <app-input label="Фамилия" [control]="getControl('surname')" error="Минимальное количество символов: 2" class="input"></app-input>
+                <app-input label="E-mail" [control]="getControl('email')" error="Некорректный адрес" class="input"></app-input>
+                <app-input label="Телефон" [control]="getControl('phone')" error="Некорректный номер телефона" class="input"></app-input>
+            </form>
+        </mat-dialog-content>
+        <mat-dialog-actions align="end" class="buttons-container">
+            <app-button mat-dialog-close color='secondary'>Отмена</app-button>
+            <app-button (click)="addClient()" [disable]="data.form.invalid">Сохранить</app-button>
+        </mat-dialog-actions>
+    </div>
+</app-modal>
